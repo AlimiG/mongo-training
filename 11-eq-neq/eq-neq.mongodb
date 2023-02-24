@@ -1,0 +1,23 @@
+use("platzi_store")
+
+// db.inventory.find({ qty: {$eq: 20}})
+
+// como buscar eleementos anidados 
+
+db.inventory.find( {"item.code": "123"} )
+
+//using $ne
+
+db.inventory.find({ qty: {$ne: 20}})
+
+
+// Updatear segun una condicion eq o ne
+
+db.inventory.updateMany(
+    {qty: { $ne: 20 } },
+    {
+        $inc: {
+            qty: 10
+        }
+    }
+)
